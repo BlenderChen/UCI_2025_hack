@@ -2,8 +2,57 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 export default function App() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  { /*const [searchQuery, setSearchQuery] = useState(""); 
+  const [suggestions, setSuggestions] = useState([]); */ }
+  const [query, setQuery] = useState('')
+  const [responseMessage, setResponseMessage] = useState(''); // Response from the Flask backend
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  };
+  
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    fetch(`http://127.0.0.1:5000/suggestions?query=${encodeURIComponent(query)}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      setResponseMessage(`Backend received: ${data.query}`);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      setResponseMessage('Error connecting to the backend.');
+    });
+  };
+
+  return (
+    <div id="root">
+      <h1>Search Bar Example</h1>
+
+      {/* Search Form */}
+      <form onSubmit={handleSearchSubmit}>
+        <input
+          type="text"
+          placeholder="Enter your search query.."
+          value={query}
+          onChange={handleSearchChange} // Update the query as the user types
+        />
+        <button type="submit">Submit</button>
+      </form>
+
+      {/* Display the backend's response */}
+      <p>{responseMessage}</p>
+    </div>
+  );
+
+
+
+
 
   // Fetch suggestions from the backend
   useEffect(() => {

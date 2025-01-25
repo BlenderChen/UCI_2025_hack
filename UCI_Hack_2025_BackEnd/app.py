@@ -23,12 +23,24 @@ def search():
 
     return jsonify({"results": filtered_results})
     
-@app.route('/suggestions', methods=['GET'])
+@app.route('/suggestions123', methods=['GET'])
 def get_suggestions():
     # Example suggestions list (can be fetched from a database instead)
+    request.args.get('query', '').lower()
     suggestions = results()
     return jsonify(suggestions)
 
+@app.route('/suggestions', methods=['GET'])
+def get_query():
+    print("hello")
+    # Retrieve the raw query parameter from the request
+    query = request.args.get('query', '')
+
+    # Log the received query for debugging purposes
+    print(f"Received query: {query}")
+
+    # Return the query as-is in the response
+    return jsonify({"query": query + " this is python operating on the data"})
 
 if __name__ == '__main__':
     app.run(debug=True)
