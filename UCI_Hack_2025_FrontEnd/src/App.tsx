@@ -5,18 +5,12 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
-  // Fetch suggestions from the text file on component mount
+  // Fetch suggestions from the backend
   useEffect(() => {
-    fetch("/suggestions.txt")
-      .then((response) => response.text())
+    fetch("http://127.0.0.1:5000/suggestions") // Replace with your backend endpoint
+      .then((response) => response.json())
       .then((data) => {
-        // Split the content into an array of suggestions
-        setSuggestions(
-          data
-            .split("\n")
-            .map((item) => item.trim())
-            .filter(Boolean)
-        );
+        setSuggestions(data); // Assuming the backend returns an array of suggestions
       })
       .catch((error) => console.error("Error fetching suggestions:", error));
   }, []);
