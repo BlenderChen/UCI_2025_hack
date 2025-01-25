@@ -1,0 +1,85 @@
+import "./App.css";
+import { useState, useEffect } from "react";
+
+export default function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+
+  // Fetch suggestions from the text file on component mount
+  useEffect(() => {
+    fetch("/suggestions.txt")
+      .then((response) => response.text())
+      .then((data) => {
+        // Split the content into an array of suggestions
+        setSuggestions(
+          data
+            .split("\n")
+            .map((item) => item.trim())
+            .filter(Boolean)
+        );
+      })
+      .catch((error) => console.error("Error fetching suggestions:", error));
+  }, []);
+
+  function handleSuggestionClick(suggestion) {
+    setSearchQuery(suggestion); // Populate search bar with the clicked suggestion
+  }
+
+  return (
+    <div style={{ padding: "20px", maxWidth: "400px", margin: "auto" }}>
+      <h1>New Horizon</h1>
+
+      {/* Search Bar */}
+      <input
+        type="text"
+        placeholder="Search real estate"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        style={{
+          width: "100%",
+          padding: "10px",
+          marginBottom: "5px",
+          border: "1px solid #ccc",
+          borderRadius: "5px",
+        }}
+      />
+
+      {/* Suggestions */}
+      {searchQuery && (
+        <ul
+          style={{
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            maxHeight: "150px",
+            overflowY: "auto",
+            listStyleType: "none",
+            padding: "10px",
+            margin: 0,
+            background: "white",
+          }}
+        >
+          {suggestions
+            .filter((item) =>
+              item.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            .map((item, index) => (
+              <li
+                key={index}
+                onClick={() => handleSuggestionClick(item)}
+                style={{
+                  padding: "5px",
+                  cursor: "pointer",
+                  borderBottom: "1px solid #eee",
+                }}
+              >
+                {item}
+              </li>
+            ))}
+          {suggestions.filter((item) =>
+            item.toLowerCase().includes(searchQuery.toLowerCase())
+          ).length === 0 && <li>No suggestions found.</li>}
+        </ul>
+      )}
+    </div>
+  );
+}
