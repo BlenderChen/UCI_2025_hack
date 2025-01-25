@@ -1,23 +1,37 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
-  // Fetch suggestions from the backend
-  useEffect(() => {
-    fetch("http://127.0.0.1:5000/suggestions") // Replace with your backend endpoint
+  // Function to fetch suggestions from the backend
+  const fetchSuggestions = (query) => {
+    fetch("http://127.0.0.1:5000/suggestion", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query }), // Send user input as JSON
+    })
       .then((response) => response.json())
       .then((data) => {
-        setSuggestions(data); // Assuming the backend returns an array of suggestions
+        setSuggestions(data); // Update suggestions state
       })
       .catch((error) => console.error("Error fetching suggestions:", error));
-  }, []);
+  };
 
-  function handleSuggestionClick(suggestion) {
-    setSearchQuery(suggestion); // Populate search bar with the clicked suggestion
-  }
+  // Handle input change
+  const handleInputChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    if (query.trim()) {
+      fetchSuggestions(query); // Fetch suggestions when input changes
+    } else {
+      setSuggestions([]); // Clear suggestions if input is empty
+    }
+  };
 
   return (
     <div style={{ padding: "20px", maxWidth: "400px", margin: "auto" }}>
@@ -28,7 +42,7 @@ export default function App() {
         type="text"
         placeholder="Search real estate"
         value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
+        onChange={handleInputChange}
         style={{
           width: "100%",
           padding: "10px",
@@ -52,26 +66,20 @@ export default function App() {
             background: "white",
           }}
         >
-          {suggestions
-            .filter((item) =>
-              item.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-            .map((item, index) => (
-              <li
-                key={index}
-                onClick={() => handleSuggestionClick(item)}
-                style={{
-                  padding: "5px",
-                  cursor: "pointer",
-                  borderBottom: "1px solid #eee",
-                }}
-              >
-                {item}
-              </li>
-            ))}
-          {suggestions.filter((item) =>
-            item.toLowerCase().includes(searchQuery.toLowerCase())
-          ).length === 0 && <li>No suggestions found.</li>}
+          {suggestions.map((item, index) => (
+            <li
+              key={index}
+              onClick={() => setSearchQuery(item)} // Populate search bar with the clicked suggestion
+              style={{
+                padding: "5px",
+                cursor: "pointer",
+                borderBottom: "1px solid #eee",
+              }}
+            >
+              {item}
+            </li>
+          ))}
+          {suggestions.length === 0 && <li>No suggestions found.</li>}
         </ul>
       )}
     </div>
