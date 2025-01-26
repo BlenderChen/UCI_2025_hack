@@ -1,17 +1,25 @@
 Price,sqft,Year,Details,Address,Link
-845712,7004,2001,"neighborhood,residential","l33 Teaberry Ln Rancho Santa Margarita, CA 92688   ",
-685399,4456,2002,"neighborhood,residential","14 Corte Las Rosas Rancho Santa Margarita, CA 92688  ",
-313262,3600,1986,"neighborhood,residential,grocery","19 Via Zapador  Rancho Santa Margarita, CA 92688",
-430145,3600,1986,"neighborhood,residential,grocery","14 Pasada Valiente Rancho Santa Margarita, CA 92688   ",
-525366,4698,1991,"neighborhood,residential","17 Via Encaro Rancho Santa Margarita, CA 92688   ",
-732855,2975,1993,"neighborhood,residential","15 Via Geneva Rancho Santa Margarita, CA 92688   ",
-316262,3600,1994,"neighborhood,residential","26 Via Caseta Rancho Santa Margarita, CA 92688   ",
-5800000,4125,2011,"patio,beach","31422 Ceanothus Dr Laguna Beach, CA 92651",https://www.homes.com/property/31422-ceanothus-dr-laguna-beach-ca/72cqqd89fymdp/   
-4995000,1579,1962,"smallpatio,beach","31423 Coast Hwy Unit 51 Laguna Beach, CA 92651",https://www.homes.com/property/31423-coast-hwy-laguna-beach-ca-unit-51/g7lr26p2qyg6s/
-790000,49615,0,"land,nobuilding,secluded,lot,acre,space","10466 Morada Orange, CA 92869",https://www.homes.com/property/10466-morada-orange-ca/ddkmr02ljp0d8/     
-650000,1117,1995,trees,"54 Sagebrush Unit 196 Trabuco Canyon, CA 92679",https://www.homes.com/property/54-sagebrush-trabuco-canyon-ca-unit-196/7tjw3ly6g0v1y/  
-1279000,2832,2008,"mountains,views,private,secluded,patio,forest","7785 Torgersen Road, Eureka, CA, 95503",https://www.jamesedition.com/real_estate/eureka-ca-usa/7785-torgersen-road-eureka-ca-95503-14323189    
+845712,7004,2001,"neighborhood,residential,threecargarage,quartzcountertops,spacious,luxuryvinylplank,entertainment,largebackyard,sustainable,solarsystem,basketball,splashpad,jacuzzi,modern,durable","33 Teaberry Ln Rancho Santa Margarita, CA 92688   ",
+685399,4456,2002,"neighborhood,residential,cul-de-sacliving","14 Corte Las Rosas Rancho Santa Margarita, CA 92688  ",
+313262,3600,1986,"neighborhood,residential,grocery,walkable","19 Via Zapador  Rancho Santa Margarita, CA 92688",
+430145,3600,1986,"neighborhood,residential,grocery,walkable","14 Pasada Valiente Rancho Santa Margarita, CA 92688   ",
+525366,4698,1991,"neighborhood,residential,suburban oasis","17 Via Encaro Rancho Santa Margarita, CA 92688   ",
+732855,2975,1993,"neighborhood,residential,suburban oasis","15 Via Geneva Rancho Santa Margarita, CA 92688   ",
+316262,3600,1994,"neighborhood,residential,quiet,residential street ","26 Via Caseta Rancho Santa Margarita, CA 92688   ",
+5800000,4125,2011,"patio,beach,beaches,water","31422 Ceanothus Dr Laguna Beach, CA 92651",https://www.homes.com/property/31422-ceanothus-dr-laguna-beach-ca/72cqqd89fymdp/   
+4995000,1579,1962,"smallpatio,beach,beaches,water","31423 Coast Hwy Unit 51 Laguna Beach, CA 92651",https://www.homes.com/property/31423-coast-hwy-laguna-beach-ca-unit-51/g7lr26p2qyg6s/
+790000,49615,0,"land,nobuilding,secluded,lot,acre,space,rural","10466 Morada Orange, CA 92869",https://www.homes.com/property/10466-morada-orange-ca/ddkmr02ljp0d8/     
+650000,1117,1995,"trees,tree,woods,communitypool,trails,garage,entertainment","54 Sagebrush Unit 196 Trabuco Canyon, CA 92679",https://www.homes.com/property/54-sagebrush-trabuco-canyon-ca-unit-196/7tjw3ly6g0v1y/
+1279000,2832,2008,"mountains,mountain,views,private,secluded,patio,tree,trees,forest,open","7785 Torgersen Road, Eureka, CA, 95503",https://www.jamesedition.com/real_estate/eureka-ca-usa/7785-torgersen-road-eureka-ca-95503-14323189    
 714900,1080,1989,"neighborhood,residential,communitypool","82 Morning Glory Unit 64 Rancho Santa Margarita, CA 92688",https://www.homes.com/property/82-morning-glory-rancho-santa-margarita-ca-unit-64/d29zfdsk2nfq0/
-1799900,2797,1992,"mountains,views,pool,patio","33 Altezza Dr Mission Viejo, CA 92692",https://www.homes.com/property/33-altezza-dr-mission-viejo-ca/8jnx17py5h055/   
-249000,112385,0,"nobuilding,land","0 Little Canyon Ln Yorba Linda, CA 92886",https://www.homes.com/property/0-little-canyon-ln-yorba-linda-ca/bew9dswymg90c/  
+1799900,2797,1992,"mountains,mountain,views,pool,patio","33 Altezza Dr Mission Viejo, CA 92692",https://www.homes.com/property/33-altezza-dr-mission-viejo-ca/8jnx17py5h055/   
+249000,112385,0,"nobuilding,land,rural, abandon","0 Little Canyon Ln Yorba Linda, CA 92886",https://www.homes.com/property/0-little-canyon-ln-yorba-linda-ca/bew9dswymg90c/  
 459900,678,1990,"communitypool,fitness,convenient,low-maintenance","8734 E Indian Hills Rd Unit H Orange, CA 92869",https://www.homes.com/property/8734-e-indian-hills-rd-orange-ca-unit-h/sjc3p95h9tw5j/
+1275000,1463,2008,"airport,university,location,twocargarage,balcony,patio,communitypool,fitness,steamroom,jacuzzi,naturallight,open","8043 Scholarship Irvine, CA 92612",https://www.homes.com/property/the-plaza-irvine-ca/gl045fed6dzdn/
+7495000,2850,2024,"new,beachfront,ocean,patio,elevator,twocargarage,jacuzzi,views,rooftop,entertain","117 G St Newport Beach, CA 92661",https://www.homes.com/property/117-g-st-newport-beach-ca/6sznef99mw714/
+645000,1000,1992,"communitypool,fitness,twocargarage,patio,porch","129 N Cross Creek Rd Unit J Orange, CA 92869",https://www.homes.com/property/129-n-cross-creek-rd-orange-ca-unit-j/pdhhfdbnnfjw9/
+565000,916,1983,"church,trails,mall,tennis,park,parks,communitypool","20702 El Toro Rd Unit 90 Lake Forest, CA 92630",https://www.homes.com/property/20702-el-toro-rd-lake-forest-ca-unit-90/g6cm0nhn6srly/
+39000000,13000,1930,"LebronJames,Lebron,Lebonbon,pool,theater,tennis,mansion,grand,majestic,opulence,luxury,primelocation,easteregg","9955 W Beverly Grove Dr, Beverly Hills, CA 90210",https://www.zillow.com/homedetails/9955-W-Beverly-Grove-Dr-Beverly-Hills-CA-90210/20523622_zpid/?
+1750000,3885,2008,"energystar,sustainable,bamboo,solar,garden,fruit,trees,lushlandscaping,high-thermal-masspassivecooling","1341 W 37th Dr Los Angeles, CA 90007",https://www.homes.com/property/1341-w-37th-dr-los-angeles-ca/zp1nrlxp7fhyk/
+760000,2180,1942,"jacuzzi,formaldiningroom,nohoa,fenced,growingfamily,savvyinvestor,sustainable,solarheatingsystem,solar","344 E 131st St Los Angeles, CA 90061",https://www.homes.com/property/344-e-131st-st-los-angeles-ca/jlcxyt9hen4qv/
+2599000,3104,2000,"threecargarage,jacuzzi,solar,sustainable,naturallight,serenewarmth,backyard,garden,location,solarheating,solarpower,communitypool","7371 Siena Dr Huntington Beach, CA 92648",https://www.homes.com/property/7371-siena-dr-huntington-beach-ca/5xwjtyx5dw62z/
