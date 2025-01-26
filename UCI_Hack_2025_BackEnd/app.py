@@ -4,6 +4,9 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow requests from your React front end
 
+def get_address():
+    return ["123 Main St", "456 Elm St", "789 Oak St"]
+
 def results():
     return [
     "Rock",
@@ -14,8 +17,75 @@ def results():
     "Valley",
     "Canyon",
     "Ridge",
-    "Peak"
-
+    "Peak",
+    "Cliff",
+    "Slope",
+    "Plain",
+    "Plateau",
+    "Bluff",
+    "Crag",
+    "River",
+    "Stream",
+    "Brook",
+    "Lagoon",
+    "Lake",
+    "Pond",
+    "Waterfall",
+    "Bay",
+    "Fjord",
+    "Estuary",
+    "Grove",
+    "Meadow",
+    "Glade",
+    "Thicket",
+    "Woodland",
+    "Jungle",
+    "Prairie",
+    "Savannah",
+    "Copse",
+    "Dune",
+    "Oasis",
+    "Wasteland",
+    "Mesa",
+    "Steppe",
+    "Scrubland",
+    "Deck",
+    "Courtyard",
+    "Pergola",
+    "Terrace",
+    "Veranda",
+    "Gazebo",
+    "Arbor",
+    "Lawn",
+    "Garden",
+    "Beach",
+    "Shore",
+    "Coast",
+    "Sandbar",
+    "Peninsula",
+    "Island",
+    "Reef",
+    "Tidepool",
+    "Archipelago",
+    "Breeze",
+    "Gale",
+    "Storm",
+    "Cloud",
+    "Mist",
+    "Fog",
+    "Thunder",
+    "Lightning",
+    "Rain",
+    "Snow",
+    "Horizon",
+    "Sunset",
+    "Sunrise",
+    "Twilight",
+    "Panorama",
+    "Landscape",
+    "Vista",
+    "Outlook",
+    "Overlook"
 ]
         
 
@@ -58,6 +128,32 @@ def get_query():
 
     # Return the query as-is in the response
     return jsonify({"query": query + " this is python operating on the data"})
+
+def find_dictionary_by_value(json_file, key, value):
+    """
+    Searches for a dictionary in a JSON file where the specified key matches the given value.
+    """
+    with open(json_file, "r") as file:
+        data = json.load(file)  # Load JSON into Python
+        # Search for the dictionary with the matching key-value pair
+        for item in data:
+            if item.get(key) == value:
+                return item
+    return None
+
+@app.route('/get_data', methods=['GET'])
+def get_data():
+    dictionary1 = {"key1": "value1", "key2": "value2"}
+    dictionary2 = {"keyA": "valueA", "keyB": "valueB"}
+    dictionary3 = {"keyX": "valueX", "keyY": "valueY"}
+
+    response = {
+        "dictionary1": dictionary1,
+        "dictionary2": dictionary2,
+        "dictionary3": dictionary3,
+    }
+
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(debug=True)

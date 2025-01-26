@@ -2,10 +2,18 @@ import "./App.css";
 import { useState, useEffect, SetStateAction } from "react";
 
 export default function App() {
-  { /*const [searchQuery, setSearchQuery] = useState("");*/ } 
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [query, setQuery] = useState('')
   const [responseMessage, setResponseMessage] = useState(''); // Response from the Flask backend
+  const [data, setData] = useState<{
+
+    dictionary1: Record<string, string>;
+
+    dictionary2: Record<string, string>;
+
+    dictionary3: Record<string, string>;
+
+  } | null>(null);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
@@ -40,7 +48,31 @@ export default function App() {
       .catch((error) => console.error("Error fetching suggestions:", error));
   }, []);
 
-  function handleSuggestionClick(suggestion: SetStateAction<string>) {
+  // Fetch the dictionaries from the backend
+
+  const fetchData = async () => {
+
+    const response = await fetch("http://127.0.0.1:5000/get_data", {
+
+      method: "GET",
+
+      headers: { "Content-Type": "application/json" },
+
+    });
+
+
+
+    const jsonData = await response.json();
+
+    setData(jsonData); // Update the grid with the fetched dictionaries
+
+  };
+
+
+
+  // Handle clicks on suggestion items
+
+  const handleSuggestionClick = (suggestion: SetStateAction<string>) => {
     setQuery(suggestion); // Populate search bar with the clicked suggestion
   }
 
@@ -82,6 +114,81 @@ export default function App() {
           ).length === 0 && <li>No suggestions found.</li>}
         </ul>
       )}
+       {/* Fetch and Display Dictionaries */}
+
+       <button onClick={fetchData} style={{ margin: "20px", padding: "10px", fontSize: "16px" }}>
+
+Load Dictionaries
+
+</button>
+
+
+
+{data && (
+
+<div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+
+  {/* Dictionary 1 */}
+
+  <div style={{ border: "1px solid #ccc", padding: "10px" }}>
+
+    <h2>Dictionary 1</h2>
+
+    {Object.entries(data.dictionary1).map(([key, value]) => (
+
+      <p key={key}>
+
+        <strong>{key}:</strong> {value}
+
+      </p>
+
+    ))}
+
+  </div>
+
+
+
+  {/* Dictionary 2 */}
+
+  <div style={{ border: "1px solid #ccc", padding: "10px" }}>
+
+    <h2>Dictionary 2</h2>
+
+    {Object.entries(data.dictionary2).map(([key, value]) => (
+
+      <p key={key}>
+
+        <strong>{key}:</strong> {value}
+
+      </p>
+
+    ))}
+
+  </div>
+
+
+
+  {/* Dictionary 3 */}
+
+  <div style={{ border: "1px solid #ccc", padding: "10px" }}>
+
+    <h2>Dictionary 3</h2>
+
+    {Object.entries(data.dictionary3).map(([key, value]) => (
+
+      <p key={key}>
+
+        <strong>{key}:</strong> {value}
+
+      </p>
+
+    ))}
+
+  </div>
+
+</div>
+
+)}
     </div>
   );
 
