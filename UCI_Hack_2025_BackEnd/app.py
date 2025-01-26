@@ -6,12 +6,20 @@ CORS(app)  # Enable CORS to allow requests from your React front end
 
 def results():
     return [
-        "New York Apartments",
-        "Los Angeles Condos",
-        "San Francisco Lofts",
-        "Miami Villas",
-        "Chicago Townhouses"
-    ]
+    "Rock",
+    "Hill",
+    "Mountain",
+    "Patio",
+    "Ocean",
+    "Valley",
+    "Canyon",
+    "Ridge",
+    "Peak"
+
+]
+        
+
+    
 
 @app.route('/api/search', methods=['POST'])
 def search():
