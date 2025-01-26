@@ -23,7 +23,7 @@ def search():
 
     return jsonify({"results": filtered_results})
     
-@app.route('/suggestions123', methods=['GET'])
+@app.route('/getsuggestions', methods=['GET'])
 def get_suggestions():
     # Example suggestions list (can be fetched from a database instead)
     request.args.get('query', '').lower()
