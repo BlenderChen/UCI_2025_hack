@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 
 export default function App() {
   { /*const [searchQuery, setSearchQuery] = useState("");*/ } 
@@ -40,7 +40,7 @@ export default function App() {
       .catch((error) => console.error("Error fetching suggestions:", error));
   }, []);
 
-  function handleSuggestionClick(suggestion) {
+  function handleSuggestionClick(suggestion: SetStateAction<string>) {
     setQuery(suggestion); // Populate search bar with the clicked suggestion
   }
 
@@ -84,20 +84,5 @@ export default function App() {
       )}
     </div>
   );
-
-
-
-
-  // Fetch suggestions from the backend
-  useEffect(() => {
-    fetch("http://127.0.0.1:5000/suggestions") // Replace with your backend endpoint
-      .then((response) => response.json())
-      .then((data) => {
-        setSuggestions(data); // Assuming the backend returns an array of suggestions
-      })
-      .catch((error) => console.error("Error fetching suggestions:", error));
-  }, []);
-
-
 
 }
