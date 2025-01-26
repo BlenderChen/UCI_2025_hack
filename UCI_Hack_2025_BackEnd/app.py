@@ -37,7 +37,7 @@ def find_dictionary_by_value(json_file, key, value):
 
 if __name__ == '__main__':
     # app.run(debug=True)
-    file = open("UCI_Hack_2025_BackEnd/fsrc/house.txt", 'r')
+    # file = open("UCI_Hack_2025_BackEnd/fsrc/house.txt", 'r')
     json_file = "UCI_Hack_2025_BackEnd/fsrc/properties.json"
     key_to_search = "price"
     value_to_search = 430145
