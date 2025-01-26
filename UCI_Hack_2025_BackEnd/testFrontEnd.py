@@ -4,7 +4,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow requests from your React front end
 
-def results():
+# Function to provide mock results
+def get_results():
     return [
         "New York Apartments",
         "Los Angeles Condos",
@@ -13,6 +14,12 @@ def results():
         "Chicago Townhouses"
     ]
 
+# Root route
+@app.route('/')
+def home():
+    return "Welcome to the Flask API!"
+
+# Route to handle search queries
 @app.route('/api/search', methods=['POST'])
 def search():
     data = request.json  # Get JSON data from the request
@@ -20,35 +27,33 @@ def search():
     print(f"User Input: {query}")
 
     # Simulate a search process (replace this with your logic, e.g., database query)
-    suggestions = results()
-    filtered_results = [item for item in suggestions if query.lower() in item.lower()]
+    results = get_results()
+    filtered_results = [item for item in results if query.lower() in item.lower()]
 
     return jsonify({"results": filtered_results})
-    
+
+# Route to provide suggestions
 @app.route('/getsuggestions', methods=['GET'])
 def get_suggestions():
-    # Retrieve the 'query' parameter from the request arguments
-    user_input = request.args.get("query", "").lower()
+    query = request.args.get('query', '').lower()  # Get query parameter
+    suggestions = get_results()
 
-    # Example suggestions list (can be fetched from a database instead)
-    suggestions = results()
+    # Optionally filter suggestions based on the query
+    if query:
+        suggestions = [item for item in suggestions if query in item.lower()]
 
-    # Filter suggestions based on the user input
-    filtered_suggestions = [
-        suggestion for suggestion in suggestions if user_input in suggestion.lower()
-    ]
-    return jsonify(filtered_suggestions)
+    return jsonify(suggestions)
 
+# Route to handle raw query processing
 @app.route('/suggestions', methods=['GET'])
 def get_query():
-    print("hello")
-    # Retrieve the raw query parameter from the request
-    query = request.args.get('query', '')
-
-    # Log the received query for debugging purposes
+    query = request.args.get('query', '')  # Retrieve query parameter
     print(f"Received query: {query}")
 
-    # Return the query as-is in the response
+    if not query:
+        return jsonify({"message": "Query parameter is missing"}), 400
+
+    # Return the processed query
     return jsonify({"query": query + " this is python operating on the data"})
 
 if __name__ == '__main__':
