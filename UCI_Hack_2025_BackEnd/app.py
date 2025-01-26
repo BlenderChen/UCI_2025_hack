@@ -143,9 +143,9 @@ def find_dictionary_by_value(json_file, key, value):
 
 @app.route('/get_data', methods=['GET'])
 def get_data():
-    dictionary1 = {"key1": "value1", "key2": "value2"}
-    dictionary2 = {"keyA": "valueA", "keyB": "valueB"}
-    dictionary3 = {"keyX": "valueX", "keyY": "valueY"}
+    dictionary1 = {"key1": "value1", "key2": "value2", "key3": "value3", "key4": "value4"}
+    dictionary2 = {"keyA": "valueA", "keyB": "valueB", "keyC": "valueC", "keyD": "valueD"}
+    dictionary3 = {"keyX": "valueX", "keyY": "valueY", "keyZ": "valueZ", "keyZZ": "valueZZ"}
 
     response = {
         "dictionary1": dictionary1,
