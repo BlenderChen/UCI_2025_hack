@@ -9,10 +9,18 @@ k=3
 app = Flask(__name__)
 CORS(app)  # Enable CORS to allow requests from your React front end
 
-placeholderArray = None  # Declare placeholderArray globally
 def get_address(input):
+    # Find the nearest houses using textToAddress
     top_houses = textToAddress.find_nearest_houses(input, k)
-    return [{"Details": house["Details"], "Distance": house["Distance"]} for house in top_houses]
+    
+    # Convert data to JSON-serializable format
+    return [
+        {
+            "Details": str(house["Details"]),  # Ensure it's a string
+        }
+        for house in top_houses
+    ]
+
 
 def results():
     return [
@@ -127,39 +135,31 @@ def get_suggestions():
 
 @app.route('/suggestions', methods=['GET'])
 def get_query():
-    global placeholderArray  # Access the global variable
+    
     query = request.args.get('query', '')
 
     # Log the received query for debugging purposes
     print(f"Received query: {query}")
 
     # Update placeholderArray
-    placeholderArray = get_address(query)
+    query = get_address(query)
 
     # Return a response with the updated placeholderArray
-    return jsonify({
-        "query": query,
-        "placeholderArray": placeholderArray
-    })
+    return jsonify({"query": query})
 
-@app.route('/get_placeholder', methods=['GET'])
-def get_placeholder():
-    global placeholderArray  # Access the global variable
-    if placeholderArray is not None:
-        return jsonify({"placeholderArray": placeholderArray})
-    return jsonify({"error": "No placeholderArray set"}), 400
 
-# def find_dictionary_by_value(json_file, key, value):
-#     """
-#     Searches for a dictionary in a JSON file where the specified key matches the given value.
-#     """
-#     with open(json_file, "r") as file:
-#         data = json.load(file)  # Load JSON into Python
-#         # Search for the dictionary with the matching key-value pair
-#         for item in data:
-#             if item.get(key) == value:
-#                 return item
-#     return None
+
+def find_dictionary_by_value(json_file, key, value):
+    """
+    Searches for a dictionary in a JSON file where the specified key matches the given value.
+    """
+    with open(json_file, "r") as file:
+        data = json.load(file)  # Load JSON into Python
+        # Search for the dictionary with the matching key-value pair
+        for item in data:
+            if item.get(key) == value:
+                return item
+    return None
 
 @app.route('/get_data', methods=['GET'])
 def get_data():
