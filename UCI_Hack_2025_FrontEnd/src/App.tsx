@@ -21,6 +21,20 @@ export default function App() {
   const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // fetch(`http://127.0.0.1:5000/suggestions?query=${encodeURIComponent(query)}`)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! Status: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     setResponseMessage(`Backend received: ${data.query}`);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error:', error);
+    //     setResponseMessage('Error connecting to the backend.');
+    //   });
     fetch(`http://127.0.0.1:5000/suggestions?query=${encodeURIComponent(query)}`)
       .then((response) => {
         if (!response.ok) {
@@ -29,12 +43,21 @@ export default function App() {
         return response.json();
       })
       .then((data) => {
-        setResponseMessage(`Backend received: ${data.query}`);
+        // If the API returns { results: [ ... ] }
+        // you can do something like:
+        setResponseMessage(
+          `Found ${data.results.length} result(s) for "${query}".`
+        );
+    
+        // If you want to display them:
+        // setFoundAddresses(data.results);
       })
       .catch((error) => {
         console.error('Error:', error);
         setResponseMessage('Error connecting to the backend.');
       });
+  
+
   };
 
   useEffect(() => {
@@ -137,7 +160,6 @@ export default function App() {
         </div>
       )}
           </div>
-
           <div style={{ border: "1px solid #ccc", padding: "10px" }}>
             <h2>#2 Location</h2>
             {Object.entries(data.dictionary2).map(([key, value]) => (
@@ -146,7 +168,6 @@ export default function App() {
               </p>
             ))}
           </div>
-
           <div style={{ border: "1px solid #ccc", padding: "10px" }}>
             <h2>#3 Location</h2>
             {Object.entries(data.dictionary3).map(([key, value]) => (
@@ -157,7 +178,6 @@ export default function App() {
           </div>
         </div>
       )}
-
     </div>
   );
 }

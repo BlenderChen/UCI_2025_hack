@@ -1,0 +1,192 @@
+[
+    {
+        "price": 249000,
+        "size": 112385,
+        "year": 0,
+        "features": [
+            "nobuilding",
+            "land"
+        ],
+        "address": "0 Little Canyon Ln Yorba Linda, CA 92886",
+        "link": "https://www.homes.com/property/0-little-canyon-ln-yorba-linda-ca/bew9dswymg90c/"
+    },
+    {
+        "price": 313262,
+        "size": 3600,
+        "year": 1986,
+        "features": [
+            "neighborhood",
+            "residential",
+            "grocery"
+        ],
+        "address": "19 Via Zapador Rancho Santa Margarita, CA",
+        "link": null
+    },
+    {
+        "price": 316262,
+        "size": 3600,
+        "year": 1994,
+        "features": [
+            "neighborhood",
+            "residential"
+        ],
+        "address": "26 Via Caseta Rancho Santa Margarita, CA",
+        "link": null
+    },
+    {
+        "price": 430145,
+        "size": 3600,
+        "year": 1986,
+        "features": [
+            "neighborhood",
+            "residential",
+            "grocery"
+        ],
+        "address": "14 Pasada Valiente Rancho Santa Margarita, CA",
+        "link": null
+    },
+    {
+        "price": 459900,
+        "size": 678,
+        "year": 1990,
+        "features": [
+            "communitypool",
+            "fitness",
+            "convenient",
+            "low-maintenance"
+        ],
+        "address": "8734 E Indian Hills Rd Unit H Orange, CA 92869",
+        "link": "https://www.homes.com/property/8734-e-indian-hills-rd-orange-ca-unit-h/sjc3p95h9tw5j/"
+    },
+    {
+        "price": 525366,
+        "size": 4698,
+        "year": 1991,
+        "features": [
+            "neighborhood",
+            "residential"
+        ],
+        "address": "17 Via Encaro Rancho Santa Margarita, CA",
+        "link": null
+    },
+    {
+        "price": 650000,
+        "size": 1117,
+        "year": 1995,
+        "features": [
+            "trees"
+        ],
+        "address": "54 Sagebrush Unit 196 Trabuco Canyon, CA 92679",
+        "link": "https://www.homes.com/property/54-sagebrush-trabuco-canyon-ca-unit-196/7tjw3ly6g0v1y/"
+    },
+    {
+        "price": 685399,
+        "size": 4456,
+        "year": 2002,
+        "features": [
+            "neighborhood",
+            "residential"
+        ],
+        "address": "14 Corte Las Rosas Rancho Santa Margarita, CA",
+        "link": null
+    },
+    {
+        "price": 714900,
+        "size": 1080,
+        "year": 1989,
+        "features": [
+            "neighborhood",
+            "residential",
+            "communitypool"
+        ],
+        "address": "82 Morning Glory Unit 64 Rancho Santa Margarita, CA 92688",
+        "link": "https://www.homes.com/property/82-morning-glory-rancho-santa-margarita-ca-unit-64/d29zfdsk2nfq0/"
+    },
+    {
+        "price": 732855,
+        "size": 2975,
+        "year": 1993,
+        "features": [
+            "neighborhood",
+            "residential"
+        ],
+        "address": "15 Via Geneva Rancho Santa Margarita, CA",
+        "link": null
+    },
+    {
+        "price": 790000,
+        "size": 49615,
+        "year": 0,
+        "features": [
+            "land",
+            "nobuilding",
+            "secluded",
+            "lot",
+            "acre",
+            "space"
+        ],
+        "address": "10466 Morada Orange, CA 92869",
+        "link": "https://www.homes.com/property/10466-morada-orange-ca/ddkmr02ljp0d8/"
+    },
+    {
+        "price": 845712,
+        "size": 7004,
+        "year": 2001,
+        "features": [
+            "neighborhood",
+            "residential"
+        ],
+        "address": "l33 Teaberry Ln Rancho Santa Margarita, CA 92688",
+        "link": null
+    },
+    {
+        "price": 1279000,
+        "size": 2832,
+        "year": 2008,
+        "features": [
+            "mountains",
+            "views",
+            "private",
+            "secluded",
+            "patio",
+            "forest"
+        ],
+        "address": "7785 Torgersen Road, Eureka, CA, 95503",
+        "link": "https://www.jamesedition.com/real_estate/eureka-ca-usa/7785-torgersen-road-eureka-ca-95503-14323189"
+    },
+    {
+        "price": 1799900,
+        "size": 2797,
+        "year": 1992,
+        "features": [
+            "mountains",
+            "views",
+            "pool",
+            "patio"
+        ],
+        "address": "33 Altezza Dr Mission Viejo, CA 92692",
+        "link": "https://www.homes.com/property/33-altezza-dr-mission-viejo-ca/8jnx17py5h055/"
+    },
+    {
+        "price": 4995000,
+        "size": 1579,
+        "year": 1962,
+        "features": [
+            "smallpatio",
+            "beach"
+        ],
+        "address": "31423 Coast Hwy Unit 51 Laguna Beach, CA 92651",
+        "link": "https://www.homes.com/property/31423-coast-hwy-laguna-beach-ca-unit-51/g7lr26p2qyg6s/"
+    },
+    {
+        "price": 5800000,
+        "size": 4125,
+        "year": 2011,
+        "features": [
+            "patio",
+            "beach"
+        ],
+        "address": "31422 Ceanothus Dr Laguna Beach, CA 92651",
+        "link": "https://www.homes.com/property/31422-ceanothus-dr-laguna-beach-ca/72cqqd89fymdp/"
+    }
+]

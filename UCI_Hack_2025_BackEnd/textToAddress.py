@@ -11,7 +11,7 @@ class textToAddress:
         self.model = SentenceTransformer(model_name)
         
         # Encode all house details into vectors
-        self.vectors = self.model.encode(self.df['Details'])
+        self.vectors = self.model.encode(self.df['Details'].astype(str).tolist())
     
     def text_to_address(self, input_text):
         """
@@ -42,10 +42,25 @@ class textToAddress:
         
         results = []
         for index, distance in nearest_neighbors:
-            details = self.df['Details'][index]
-            results.append({"Details": details, "Distance": distance})
+            # Extract details from the DataFrame for the nearest neighbors
+            details = self.df.iloc[index]
+            results.append({
+                "Details": details['Details'],
+                "Distance": distance,
+                "Address": details['Address'],
+                "Price": details['Price'],
+                "Link": details['Link'],
+                "Year": details['Year']
+            })
         
         return results
+
+    def returnTable(self):
+        """
+        Return the loaded DataFrame.
+        """
+        return self.df
+
 if __name__ == "__main__":
     # Example usage
     house_search = textToAddress(dataset_path='Houses.csv')
@@ -60,3 +75,4 @@ if __name__ == "__main__":
     print(f"\nTop {k} Nearest Neighbors:\n")
     for result in results:
         print(f"Details: {result['Details']}, Distance: {result['Distance']:.2f}")
+        print(f"Address: {result['Address']}, Price: {result['Price']}, Link: {result['Link']}, Year: {result['Year']}")
